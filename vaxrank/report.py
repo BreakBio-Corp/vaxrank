@@ -221,6 +221,7 @@ class TemplateDataCreator(object):
             ('IC50', '%.2f nM' % epitope_prediction.ic50),
             ('EL Percentile', epitope_prediction.percentile_rank),
             ('EL Score', _sanitize(epitope_prediction.logistic_epitope_score())),
+            ('WT EL Score', epitope_prediction.wt_el),
             ('Allele', epitope_prediction.allele.replace('HLA-', '')),
             ('WT sequence', epitope_prediction.wt_peptide_sequence),
             ('WT IC50', wt_ic50_str),
