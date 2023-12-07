@@ -70,7 +70,7 @@ class EpitopePrediction(Serializable):
             self,
             midpoint=350.0,
             width=150.0,
-            el_score_cut_off=10.0):  # TODO: add these default values into CLI as arguments
+            el_score_cut_off=99.0):  # TODO: add these default values into CLI as arguments
         """
         Map from IC50 values to score where 1.0 = strong binder, 0.0 = weak binder
         Default midpoint and width for logistic determined by max likelihood fit
@@ -82,8 +82,9 @@ class EpitopePrediction(Serializable):
         TODO: Use a large dataset to find MHC binding range predicted to #
         correlate with immunogenicity
         """
-        # if self.percentile_rank >= el_score_cut_off:
-        #     return 0.0
+        if self.percentile_rank >= el_score_cut_off:
+            print(f"percentile rank is greater than cut off values ###emon#### pepitde: {self.peptide_sequence}")
+            return 0.0
         return self.el_score
 
     def slice_source_sequence(self, start_offset, end_offset):
