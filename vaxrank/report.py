@@ -267,9 +267,9 @@ class TemplateDataCreator(object):
 
     def _databases(self, variant, predicted_effect, gene_name):
         databases = {}
-        wustl_link = self._query_wustl(predicted_effect, gene_name)
-        if wustl_link:
-            databases['WUSTL'] = wustl_link
+        #wustl_link = self._query_wustl(predicted_effect, gene_name)
+        #if wustl_link:
+        #    databases['WUSTL'] = wustl_link
 
         cosmic_link = self._query_cosmic(variant)
         if cosmic_link:
